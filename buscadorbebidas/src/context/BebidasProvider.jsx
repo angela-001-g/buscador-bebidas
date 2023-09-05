@@ -15,6 +15,7 @@ const BebidasProvider = ({children}) => {
             const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${datos.nombre}&c=${datos.categoria}`
             const { data } = await axios(url)
             setBebidas(data.drinks)
+
         } catch(error){
             console.log(error)
         }
