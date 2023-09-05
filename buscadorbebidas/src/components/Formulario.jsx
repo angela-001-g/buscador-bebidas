@@ -1,12 +1,33 @@
-import { Button, Form, Row, Col } from 'react-bootstrap'
+import { useState } from 'react'
+import { Button, Form, Row, Col, Alert } from 'react-bootstrap'
 import useCategorias from '../hooks/useCategorias'
 
 function Formulario() {
 
     const { categorias } = useCategorias()
 
+    const [busqueda, setBusqueda] = useState({
+        nombre: '', 
+        categoria: ''
+    })
+
+    const [alerta, setAlerta] = useState('')  
+
+    const handleSubmit = e => {
+        e.preventDefault()
+
+        if(Object.values(busqueda).includes('')){
+            setAlerta('Todos los campos son obligatorios')
+            return
+        }
+        setAlerta('')
+    }
+
     return (
-        <Form>
+        <Form
+            onSubmit={handleSubmit}
+        >
+            {alerta && <Alert variant='danger' className='text-center' >{alerta}</Alert>}
             <Row>
                 <Col md={6}>
 
@@ -18,6 +39,11 @@ function Formulario() {
                         type='text'
                         placeholder='Ej: Tequila, vodka, etc'
                         name='nombre'
+                        value={busqueda.nombre}
+                        onChange={e => setBusqueda({
+                            ...busqueda,
+                            [e.target.name] : e.target.value
+                        })}
                         />
                     </Form.Group>
 
@@ -30,6 +56,11 @@ function Formulario() {
                         <Form.Select
                             id='categoria'
                             name='categoria'
+                            value={busqueda.categoria}
+                            onChange={e => setBusqueda({
+                                ...busqueda,
+                                [e.target.name] : e.target.value
+                            })}
                         >
                             <option>-- Selecciona Categotia --</option>
                             {categorias.map(categoria => (
@@ -50,6 +81,7 @@ function Formulario() {
                     <Button
                         variant='danger'
                         className='text-uppercase w-100'
+                        type='submit'
                     >
                         Buscar Bebidas
                     </Button>
