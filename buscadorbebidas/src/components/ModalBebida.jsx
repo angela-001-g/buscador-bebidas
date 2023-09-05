@@ -1,4 +1,4 @@
-import { Modal, Image } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 import useBebidas from '../hooks/useBebidas'
 
 function ModalBebida() {
