@@ -9,6 +9,7 @@ const BebidasProvider = ({children}) => {
 
     const [bebidas, setBebidas] = useState([])
     const [modal, setModal] = useState(false)
+    const [fullScreenModal, setFullScreenModal] = useState(false)
     const [bebidaId, setBebidaId] = useState(null)
     const [receta, setReceta] = useState({})
 
@@ -48,6 +49,11 @@ const BebidasProvider = ({children}) => {
         setBebidaId(id)
     }
 
+    const handleModalFavClick = () => {
+        setFullScreenModal(!fullScreenModal)
+        console.log('click')
+    }                 
+
     return(
         <BebidasContext.Provider
             value={{
@@ -57,7 +63,9 @@ const BebidasProvider = ({children}) => {
                 modal,
                 handleBebidaIdClick, 
                 receta,
-                setReceta 
+                setReceta,
+                handleModalFavClick,
+                fullScreenModal
             }}
         >
             {children}

@@ -2,6 +2,7 @@ import { Container } from 'react-bootstrap'
 import Formulario from './components/Formulario'
 import ListadoBebidas from './components/ListadoBebidas'
 import ModalBebida from './components/ModalBebida'
+import ModalFavoritas from './components/ModalFavoritas'
 import { CategoriasProvider } from './context/CategoriasProvider'
 import { BebidasProvider } from './context/BebidasProvider'
 
@@ -14,9 +15,11 @@ function App() {
           <h1>Buscador de bebidas</h1>
         </header>
 
-        <Container className='mt-5'>
+        <Container className='mt-5   '>
             <Formulario /> 
 
+            <ModalFavoritas />
+            
             <ListadoBebidas />
 
             <ModalBebida />

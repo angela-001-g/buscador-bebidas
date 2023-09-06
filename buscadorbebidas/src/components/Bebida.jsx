@@ -16,16 +16,18 @@ function Bebida({bebida}) {
           />
           <Card.Body>
             <Card.Title>{bebida.strDrink}</Card.Title>
-            <Button
-              variant='warning'
-              className='w-100 text-uppercase mt-2'
-              onClick={() => {
-                handleModalClick()
-                handleBebidaIdClick(bebida.idDrink)
-              }}
-            >
-              Ver Receta
-            </Button>
+      
+              <Button
+                variant='outline-info'
+                className='w-100 text-uppercase mt-2'
+                onClick={() => {
+                  handleModalClick()
+                  handleBebidaIdClick(bebida.idDrink)
+                }}
+              >
+                Ver Receta
+              </Button>
+  
           </Card.Body>
       </Card>
     </Col>

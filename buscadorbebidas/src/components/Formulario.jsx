@@ -7,7 +7,7 @@ function Formulario() {
 
     const { categorias } = useCategorias()
     const [alerta, setAlerta] = useState('')  
-    const { consultarBebida } = useBebidas()
+    const { consultarBebida, handleModalFavClick } = useBebidas()
 
     const [busqueda, setBusqueda] = useState({
         nombre: '', 
@@ -78,10 +78,20 @@ function Formulario() {
                 </Col>
             </Row>
 
-            <Row className='justify-content-end'>
+            <Row >
+                <Col>
+                    <Button
+                        className='text-uppercase'
+                        variant='outline-warning'
+                        onClick={handleModalFavClick}
+                    >
+                        Bebidas Favoritas
+                    </Button>
+                </Col>
+
                 <Col md={3}>
                     <Button
-                        variant='danger'
+                        variant='outline-danger'
                         className='text-uppercase w-100'
                         type='submit'
                     >

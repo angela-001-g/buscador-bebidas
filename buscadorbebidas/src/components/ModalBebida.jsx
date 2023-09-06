@@ -1,4 +1,4 @@
-import { Modal, Image } from 'react-bootstrap'
+import { Modal, Image, Button } from 'react-bootstrap'
 import useBebidas from '../hooks/useBebidas'
 
 function ModalBebida() {
@@ -42,6 +42,13 @@ function ModalBebida() {
                 <h2>Ingredientes y cantidades</h2>
                 {mostrarIngredientes()}
             </div>
+            <Button
+                size='sm'
+                className='w-100 text-uppercase'
+                variant='outline-warning'
+            >
+                Añadir Favorita
+            </Button>
         </Modal.Body>
     </Modal>
   )
